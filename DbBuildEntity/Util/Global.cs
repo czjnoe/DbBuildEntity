@@ -30,6 +30,11 @@ namespace DbBuildEntity.Util
         //}
 
         public static string assemblyBasePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
         public static string configStringFullPath = assemblyBasePath + "\\Config\\ConnString.json";
+
+        public static string appConfigFullPath = assemblyBasePath + "\\app.config";
+
+        public static string templatePath = assemblyBasePath + "\\Template";
     }
 }

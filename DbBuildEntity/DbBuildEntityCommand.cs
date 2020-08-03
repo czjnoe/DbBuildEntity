@@ -10,6 +10,9 @@ using System.Globalization;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using DbBuildEntity.UI;
+using EnvDTE;
+using EnvDTE80;
+using System.IO;
 
 namespace DbBuildEntity
 {
@@ -94,7 +97,8 @@ namespace DbBuildEntity
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            new FrmMain().ShowDialog();
+           var tuplePath= GetPath(ServiceProvider);
+            new FrmMain(tuplePath.Item2).ShowDialog();
             //string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
             //string title = "DbBuildEntityCommand";
 
@@ -107,5 +111,46 @@ namespace DbBuildEntity
             //    OLEMSGBUTTON.OLEMSGBUTTON_OK,
             //    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
         }
+
+        private static Tuple<string, string, string> GetPath(IServiceProvider serviceProvider)
+        {
+            var dte = serviceProvider.GetService(typeof(DTE)) as DTE2;
+            var projects = (UIHierarchyItem[])dte?.ToolWindows.SolutionExplorer.SelectedItems;
+            if (projects == null)
+            {
+                //ShowMessage("未选中任何项目!", serviceProvider);
+                return null;
+
+            }
+            var project = projects[0];
+            var item = project.Object as Project;
+            var path = item?.FullName;
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                //ShowMessage("项目路径为空!", serviceProvider);
+                return null;
+
+            }
+            if (!File.Exists(path))
+            {
+                //ShowMessage(path + "文件不存在!", serviceProvider);
+                return null;
+
+            }
+
+            var srcPath = item?.Properties.Item("FullPath").Value?.ToString();
+            if (string.IsNullOrWhiteSpace(srcPath))
+            {
+                //ShowMessage("FullPath路径为空!", serviceProvider);
+                return null;
+
+            }
+            //path:.csproj全路径
+            //srcPath:.csproj所在的目录
+            //item.Name:项目名称
+            return Tuple.Create(path, srcPath, item.Name);
+        }
+
+
     }
 }

@@ -10,6 +10,10 @@ using System.Globalization;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using DbBuildEntity.UI;
+using EnvDTE;
+using EnvDTE80;
+using System.Collections.Generic;
+using System.IO;
 
 namespace DbBuildEntity
 {
@@ -94,7 +98,8 @@ namespace DbBuildEntity
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            new FrmMain().ShowDialog();
+            var tuplePath=GetFolderPath(ServiceProvider);
+            new FrmMain(tuplePath.Item2).ShowDialog();
             //string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
             //string title = "DbBuildEntity_Folder_Command";
 
@@ -107,5 +112,80 @@ namespace DbBuildEntity
             //    OLEMSGBUTTON.OLEMSGBUTTON_OK,
             //    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
         }
+
+
+        /// <summary>
+        /// 获取当前选中的文件夹路径
+        /// </summary>
+        /// <param name="serviceProvider"></param>
+        /// <returns></returns>
+        private static Tuple<string, string, string> GetFolderPath(IServiceProvider serviceProvider)
+        {
+            var dte = serviceProvider.GetService(typeof(DTE)) as DTE2;
+            var projects = (UIHierarchyItem[])dte?.ToolWindows.SolutionExplorer.SelectedItems;
+            if (projects == null)
+            {
+                //ShowMessage("未选中任何项目!", serviceProvider);
+                return null;
+            }
+            var project = projects[0];
+            var item = project.Object as dynamic;
+
+            var parentProject = item.ContainingProject as Project;
+
+
+            var path = parentProject?.Properties.Item("FullPath").Value?.ToString();
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                //ShowMessage("项目路径为空!", serviceProvider);
+                return null;
+            }
+            var projectFullPath = parentProject?.FullName;
+            if (!File.Exists(projectFullPath))
+            {
+                //ShowMessage(path + "文件不存在!", serviceProvider);
+                return null;
+            }
+            Stack<string> filderPathStack = new Stack<string>();
+            filderPathStack = FolderRecursion(project, filderPathStack);
+            string filderPath = string.Empty;
+            foreach (var stack in filderPathStack)
+            {
+                filderPath += stack;
+            }
+
+            var srcPath = parentProject?.Properties.Item("FullPath").Value?.ToString() + filderPath;
+            if (string.IsNullOrWhiteSpace(srcPath))
+            {
+                //ShowMessage("FullPath路径为空!", serviceProvider);
+                return null;
+            }
+            //path:.当前项目根目录
+            //srcPath:当前选择文件夹所在的路径
+            //item.Name:当前选择文件夹名称
+            return Tuple.Create(path, srcPath, item.Name);
+        }
+
+        /// <summary>
+        /// 递归路径
+        /// </summary>
+        /// <param name="project"></param>
+        /// <param name="stack">堆</param>
+        /// <returns></returns>
+        private static Stack<string> FolderRecursion(UIHierarchyItem project, Stack<string> stack)
+        {
+            if (project.Object is Project)
+            {
+                return stack;
+            }
+            else
+            {
+                var parent = project.Collection.Parent as UIHierarchyItem;
+                stack.Push(project.Name + "\\");
+                FolderRecursion(parent, stack);
+            }
+            return stack;
+        }
+
     }
 }

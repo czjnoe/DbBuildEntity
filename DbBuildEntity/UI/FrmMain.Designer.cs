@@ -30,6 +30,13 @@
         {
             this.uiTabControl1 = new Sunny.UI.UITabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbbTemplate = new Sunny.UI.UIComboBox();
+            this.uiLabel9 = new Sunny.UI.UILabel();
+            this.uiButton1 = new Sunny.UI.UIButton();
+            this.tbNameSapce = new Sunny.UI.UITextBox();
+            this.uiLabel5 = new Sunny.UI.UILabel();
+            this.cbbConfig = new Sunny.UI.UIComboBox();
+            this.uiLabel4 = new Sunny.UI.UILabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uiPanel2 = new Sunny.UI.UIPanel();
             this.btnConnSave = new Sunny.UI.UIButton();
@@ -43,17 +50,12 @@
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.lbConnName = new Sunny.UI.UIListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.uiLabel4 = new Sunny.UI.UILabel();
-            this.cbbConfig = new Sunny.UI.UIComboBox();
-            this.uiLabel5 = new Sunny.UI.UILabel();
-            this.tbNameSapce = new Sunny.UI.UITextBox();
-            this.uiButton1 = new Sunny.UI.UIButton();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
-            this.uiLabel6 = new Sunny.UI.UILabel();
-            this.uiLabel7 = new Sunny.UI.UILabel();
-            this.uiLinkLabel1 = new Sunny.UI.UILinkLabel();
             this.uiLabel8 = new Sunny.UI.UILabel();
+            this.uiLinkLabel1 = new Sunny.UI.UILinkLabel();
+            this.uiLabel7 = new Sunny.UI.UILabel();
+            this.uiLabel6 = new Sunny.UI.UILabel();
             this.uiTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -83,6 +85,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cbbTemplate);
+            this.tabPage1.Controls.Add(this.uiLabel9);
             this.tabPage1.Controls.Add(this.uiButton1);
             this.tabPage1.Controls.Add(this.tbNameSapce);
             this.tabPage1.Controls.Add(this.uiLabel5);
@@ -94,6 +98,95 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "首页";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cbbTemplate
+            // 
+            this.cbbTemplate.FillColor = System.Drawing.Color.White;
+            this.cbbTemplate.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.cbbTemplate.Location = new System.Drawing.Point(173, 198);
+            this.cbbTemplate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbbTemplate.MinimumSize = new System.Drawing.Size(63, 0);
+            this.cbbTemplate.Name = "cbbTemplate";
+            this.cbbTemplate.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
+            this.cbbTemplate.Size = new System.Drawing.Size(360, 34);
+            this.cbbTemplate.TabIndex = 6;
+            this.cbbTemplate.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel9
+            // 
+            this.uiLabel9.AutoSize = true;
+            this.uiLabel9.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel9.Location = new System.Drawing.Point(44, 205);
+            this.uiLabel9.Name = "uiLabel9";
+            this.uiLabel9.Size = new System.Drawing.Size(57, 27);
+            this.uiLabel9.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel9.TabIndex = 5;
+            this.uiLabel9.Text = "模板:";
+            this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(173, 275);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.TabIndex = 4;
+            this.uiButton1.Text = "生成";
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
+            // 
+            // tbNameSapce
+            // 
+            this.tbNameSapce.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbNameSapce.FillColor = System.Drawing.Color.White;
+            this.tbNameSapce.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.tbNameSapce.Location = new System.Drawing.Point(173, 119);
+            this.tbNameSapce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbNameSapce.Maximum = 2147483647D;
+            this.tbNameSapce.Minimum = -2147483648D;
+            this.tbNameSapce.Name = "tbNameSapce";
+            this.tbNameSapce.Padding = new System.Windows.Forms.Padding(5);
+            this.tbNameSapce.Size = new System.Drawing.Size(360, 34);
+            this.tbNameSapce.TabIndex = 3;
+            this.tbNameSapce.TextChanged += new System.EventHandler(this.tbNameSapce_TextChanged);
+            // 
+            // uiLabel5
+            // 
+            this.uiLabel5.AutoSize = true;
+            this.uiLabel5.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel5.Location = new System.Drawing.Point(44, 119);
+            this.uiLabel5.Name = "uiLabel5";
+            this.uiLabel5.Size = new System.Drawing.Size(97, 27);
+            this.uiLabel5.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel5.TabIndex = 2;
+            this.uiLabel5.Text = "命名空间:";
+            this.uiLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbbConfig
+            // 
+            this.cbbConfig.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
+            this.cbbConfig.FillColor = System.Drawing.Color.White;
+            this.cbbConfig.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.cbbConfig.Location = new System.Drawing.Point(173, 39);
+            this.cbbConfig.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbbConfig.MinimumSize = new System.Drawing.Size(63, 0);
+            this.cbbConfig.Name = "cbbConfig";
+            this.cbbConfig.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
+            this.cbbConfig.Size = new System.Drawing.Size(360, 34);
+            this.cbbConfig.TabIndex = 1;
+            this.cbbConfig.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel4
+            // 
+            this.uiLabel4.AutoSize = true;
+            this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel4.Location = new System.Drawing.Point(44, 39);
+            this.uiLabel4.Name = "uiLabel4";
+            this.uiLabel4.Size = new System.Drawing.Size(57, 27);
+            this.uiLabel4.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel4.TabIndex = 0;
+            this.uiLabel4.Text = "配置:";
+            this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tabPage2
             // 
@@ -175,6 +268,7 @@
             // 
             // cbbConnType
             // 
+            this.cbbConnType.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
             this.cbbConnType.FillColor = System.Drawing.Color.White;
             this.cbbConnType.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.cbbConnType.Location = new System.Drawing.Point(158, 43);
@@ -182,7 +276,7 @@
             this.cbbConnType.MinimumSize = new System.Drawing.Size(63, 0);
             this.cbbConnType.Name = "cbbConnType";
             this.cbbConnType.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
-            this.cbbConnType.Size = new System.Drawing.Size(150, 34);
+            this.cbbConnType.Size = new System.Drawing.Size(256, 34);
             this.cbbConnType.TabIndex = 11;
             this.cbbConnType.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -248,6 +342,7 @@
             this.lbConnName.Size = new System.Drawing.Size(208, 405);
             this.lbConnName.TabIndex = 8;
             this.lbConnName.Text = "uiListBox1";
+            this.lbConnName.ItemDoubleClick += new System.EventHandler(this.lbConnName_ItemDoubleClick);
             // 
             // tabPage3
             // 
@@ -259,65 +354,6 @@
             this.tabPage3.Text = "关于";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // uiLabel4
-            // 
-            this.uiLabel4.AutoSize = true;
-            this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel4.Location = new System.Drawing.Point(44, 39);
-            this.uiLabel4.Name = "uiLabel4";
-            this.uiLabel4.Size = new System.Drawing.Size(57, 27);
-            this.uiLabel4.TabIndex = 0;
-            this.uiLabel4.Text = "配置:";
-            this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cbbConfig
-            // 
-            this.cbbConfig.FillColor = System.Drawing.Color.White;
-            this.cbbConfig.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.cbbConfig.Location = new System.Drawing.Point(173, 39);
-            this.cbbConfig.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbbConfig.MinimumSize = new System.Drawing.Size(63, 0);
-            this.cbbConfig.Name = "cbbConfig";
-            this.cbbConfig.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
-            this.cbbConfig.Size = new System.Drawing.Size(219, 34);
-            this.cbbConfig.TabIndex = 1;
-            this.cbbConfig.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // uiLabel5
-            // 
-            this.uiLabel5.AutoSize = true;
-            this.uiLabel5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel5.Location = new System.Drawing.Point(44, 138);
-            this.uiLabel5.Name = "uiLabel5";
-            this.uiLabel5.Size = new System.Drawing.Size(97, 27);
-            this.uiLabel5.TabIndex = 2;
-            this.uiLabel5.Text = "命名空间:";
-            this.uiLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbNameSapce
-            // 
-            this.tbNameSapce.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbNameSapce.FillColor = System.Drawing.Color.White;
-            this.tbNameSapce.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.tbNameSapce.Location = new System.Drawing.Point(173, 138);
-            this.tbNameSapce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbNameSapce.Maximum = 2147483647D;
-            this.tbNameSapce.Minimum = -2147483648D;
-            this.tbNameSapce.Name = "tbNameSapce";
-            this.tbNameSapce.Padding = new System.Windows.Forms.Padding(5);
-            this.tbNameSapce.Size = new System.Drawing.Size(360, 34);
-            this.tbNameSapce.TabIndex = 3;
-            // 
-            // uiButton1
-            // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(173, 251);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(100, 35);
-            this.uiButton1.TabIndex = 4;
-            this.uiButton1.Text = "生成";
-            // 
             // uiPanel3
             // 
             this.uiPanel3.Controls.Add(this.uiGroupBox1);
@@ -328,6 +364,7 @@
             this.uiPanel3.Name = "uiPanel3";
             this.uiPanel3.Size = new System.Drawing.Size(886, 405);
             this.uiPanel3.TabIndex = 0;
+            this.uiPanel3.Text = null;
             // 
             // uiGroupBox1
             // 
@@ -345,27 +382,17 @@
             this.uiGroupBox1.TabIndex = 0;
             this.uiGroupBox1.Text = "作者";
             // 
-            // uiLabel6
+            // uiLabel8
             // 
-            this.uiLabel6.AutoSize = true;
-            this.uiLabel6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel6.Location = new System.Drawing.Point(44, 53);
-            this.uiLabel6.Name = "uiLabel6";
-            this.uiLabel6.Size = new System.Drawing.Size(57, 27);
-            this.uiLabel6.TabIndex = 0;
-            this.uiLabel6.Text = "姓名:";
-            this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // uiLabel7
-            // 
-            this.uiLabel7.AutoSize = true;
-            this.uiLabel7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel7.Location = new System.Drawing.Point(49, 96);
-            this.uiLabel7.Name = "uiLabel7";
-            this.uiLabel7.Size = new System.Drawing.Size(89, 27);
-            this.uiLabel7.TabIndex = 1;
-            this.uiLabel7.Text = "Gihub：";
-            this.uiLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel8.AutoSize = true;
+            this.uiLabel8.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel8.Location = new System.Drawing.Point(166, 53);
+            this.uiLabel8.Name = "uiLabel8";
+            this.uiLabel8.Size = new System.Drawing.Size(112, 27);
+            this.uiLabel8.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel8.TabIndex = 3;
+            this.uiLabel8.Text = "秋雨雁南飞";
+            this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uiLinkLabel1
             // 
@@ -375,24 +402,37 @@
             this.uiLinkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.uiLinkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.uiLinkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLinkLabel1.Location = new System.Drawing.Point(161, 96);
+            this.uiLinkLabel1.Location = new System.Drawing.Point(166, 96);
             this.uiLinkLabel1.Name = "uiLinkLabel1";
-            this.uiLinkLabel1.Size = new System.Drawing.Size(129, 27);
+            this.uiLinkLabel1.Size = new System.Drawing.Size(400, 27);
             this.uiLinkLabel1.TabIndex = 2;
             this.uiLinkLabel1.TabStop = true;
-            this.uiLinkLabel1.Text = "uiLinkLabel1";
+            this.uiLinkLabel1.Text = "https://github.com/czjnoe/DbBuildEntity";
             this.uiLinkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             // 
-            // uiLabel8
+            // uiLabel7
             // 
-            this.uiLabel8.AutoSize = true;
-            this.uiLabel8.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel8.Location = new System.Drawing.Point(166, 53);
-            this.uiLabel8.Name = "uiLabel8";
-            this.uiLabel8.Size = new System.Drawing.Size(112, 27);
-            this.uiLabel8.TabIndex = 3;
-            this.uiLabel8.Text = "秋雨雁南飞";
-            this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel7.AutoSize = true;
+            this.uiLabel7.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel7.Location = new System.Drawing.Point(44, 96);
+            this.uiLabel7.Name = "uiLabel7";
+            this.uiLabel7.Size = new System.Drawing.Size(96, 27);
+            this.uiLabel7.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel7.TabIndex = 1;
+            this.uiLabel7.Text = "Github：";
+            this.uiLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel6
+            // 
+            this.uiLabel6.AutoSize = true;
+            this.uiLabel6.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel6.Location = new System.Drawing.Point(44, 53);
+            this.uiLabel6.Name = "uiLabel6";
+            this.uiLabel6.Size = new System.Drawing.Size(57, 27);
+            this.uiLabel6.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel6.TabIndex = 0;
+            this.uiLabel6.Text = "姓名:";
+            this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FrmMain
             // 
@@ -400,8 +440,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 480);
             this.Controls.Add(this.uiTabControl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmMain";
-            this.Text = "生成实体";
+            this.ShowInTaskbar = false;
+            this.Text = "自动生成实体";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.uiTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -445,5 +489,7 @@
         private Sunny.UI.UILinkLabel uiLinkLabel1;
         private Sunny.UI.UILabel uiLabel7;
         private Sunny.UI.UILabel uiLabel6;
+        private Sunny.UI.UIComboBox cbbTemplate;
+        private Sunny.UI.UILabel uiLabel9;
     }
 }
