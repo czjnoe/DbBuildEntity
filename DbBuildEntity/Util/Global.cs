@@ -36,5 +36,6 @@ namespace DbBuildEntity.Util
         public static string appConfigFullPath = assemblyBasePath + "\\app.config";
 
         public static string templatePath = assemblyBasePath + "\\Template";
+        public static string dbTypeFullPath = assemblyBasePath + "\\Config\\dbtype.json";
     }
 }

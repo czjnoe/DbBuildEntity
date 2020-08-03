@@ -19,6 +19,7 @@ namespace DbBuildEntity.UI
     public partial class FrmMain : UIForm
     {
         private List<string> templateList = new List<string>();
+        private Dictionary<string, string> dbTypeDic = new Dictionary<string, string>();
         public FrmMain()
         {
             InitializeComponent();
@@ -32,6 +33,9 @@ namespace DbBuildEntity.UI
         {
             InitializeComponent();
             _savePath = savePath;
+
+            var dTypeList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DbTypeModel>>(File.ReadAllText(Global.dbTypeFullPath));
+            dbTypeDic = dTypeList.ToDictionary(key => key.dbtype, value => value.cstype);
         }
 
         /// <summary>
@@ -181,15 +185,28 @@ namespace DbBuildEntity.UI
 
             }
 
-            var tables=dal.GetTables();
+            var tables = dal.GetTables();
             foreach (var table in tables)
             {
                 var columnsList = dal.GetColumnList(table.TableName);
-                var buildContent=RazorBuildUtil.GetBuildContent(templatePath, columnsList, table);
+                foreach (var column in columnsList)
+                {
+                    string value = string.Empty;
+                    var dResult=dbTypeDic.TryGetValue(column.TypeName, out value);
+                    if (dResult)
+                    {
+                        column.TypeName = value;
+                    }
+                    else
+                    {
+                        column.TypeName = "object";
+                    }
+                }
+                var buildContent = RazorBuildUtil.GetBuildContent(templatePath, columnsList, table);
                 FileUtil.Save(buildContent, _savePath);
             }
-            
-            
+
+
         }
     }
 }
