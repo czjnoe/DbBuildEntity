@@ -69,6 +69,7 @@ namespace DbBuildEntity
             DbBuildEntityCommand.Initialize(this);
             base.Initialize();
             DbBuildEntity_Folder_Command.Initialize(this);
+            DbBuildEntity_Extension_Command.Initialize(this);
         }
 
         #endregion

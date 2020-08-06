@@ -18,7 +18,7 @@ using System.IO;
 namespace DbBuildEntity
 {
     /// <summary>
-    /// Command handler
+    /// Command 项目文件按钮
     /// </summary>
     internal sealed class DbBuildEntity_Folder_Command
     {

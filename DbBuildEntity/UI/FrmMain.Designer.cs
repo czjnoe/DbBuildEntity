@@ -35,7 +35,7 @@
             this.uiLabel10 = new Sunny.UI.UILabel();
             this.cbbTemplate = new Sunny.UI.UIComboBox();
             this.uiLabel9 = new Sunny.UI.UILabel();
-            this.uiButton1 = new Sunny.UI.UIButton();
+            this.btnBuild = new Sunny.UI.UIButton();
             this.tbNameSapce = new Sunny.UI.UITextBox();
             this.uiLabel5 = new Sunny.UI.UILabel();
             this.cbbConfig = new Sunny.UI.UIComboBox();
@@ -59,6 +59,8 @@
             this.uiLinkLabel1 = new Sunny.UI.UILinkLabel();
             this.uiLabel7 = new Sunny.UI.UILabel();
             this.uiLabel6 = new Sunny.UI.UILabel();
+            this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
+            this.ToolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.uiTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -67,6 +69,7 @@
             this.tabPage3.SuspendLayout();
             this.uiPanel3.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
+            this.uiContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiTabControl1
@@ -93,7 +96,7 @@
             this.tabPage1.Controls.Add(this.uiLabel10);
             this.tabPage1.Controls.Add(this.cbbTemplate);
             this.tabPage1.Controls.Add(this.uiLabel9);
-            this.tabPage1.Controls.Add(this.uiButton1);
+            this.tabPage1.Controls.Add(this.btnBuild);
             this.tabPage1.Controls.Add(this.tbNameSapce);
             this.tabPage1.Controls.Add(this.uiLabel5);
             this.tabPage1.Controls.Add(this.cbbConfig);
@@ -168,16 +171,16 @@
             this.uiLabel9.Text = "模板:";
             this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiButton1
+            // btnBuild
             // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(173, 335);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(100, 35);
-            this.uiButton1.TabIndex = 4;
-            this.uiButton1.Text = "生成";
-            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
+            this.btnBuild.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuild.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btnBuild.Location = new System.Drawing.Point(173, 335);
+            this.btnBuild.Name = "btnBuild";
+            this.btnBuild.Size = new System.Drawing.Size(100, 35);
+            this.btnBuild.TabIndex = 4;
+            this.btnBuild.Text = "生成";
+            this.btnBuild.Click += new System.EventHandler(this.btnBuild_Click);
             // 
             // tbNameSapce
             // 
@@ -376,6 +379,8 @@
             // 
             // lbConnName
             // 
+            this.lbConnName.AutoScroll = true;
+            this.lbConnName.ContextMenuStrip = this.uiContextMenuStrip1;
             this.lbConnName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbConnName.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.lbConnName.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
@@ -479,6 +484,22 @@
             this.uiLabel6.Text = "姓名:";
             this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // uiContextMenuStrip1
+            // 
+            this.uiContextMenuStrip1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.uiContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemDelete});
+            this.uiContextMenuStrip1.Name = "uiContextMenuStrip1";
+            this.uiContextMenuStrip1.Size = new System.Drawing.Size(125, 36);
+            // 
+            // ToolStripMenuItemDelete
+            // 
+            this.ToolStripMenuItemDelete.Name = "ToolStripMenuItemDelete";
+            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(175, 32);
+            this.ToolStripMenuItemDelete.Text = "删除";
+            this.ToolStripMenuItemDelete.Click += new System.EventHandler(this.ToolStripMenuItemDelete_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
@@ -502,6 +523,7 @@
             this.uiPanel3.ResumeLayout(false);
             this.uiGroupBox1.ResumeLayout(false);
             this.uiGroupBox1.PerformLayout();
+            this.uiContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -523,7 +545,7 @@
         private Sunny.UI.UITextBox tbConnName;
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIListBox lbConnName;
-        private Sunny.UI.UIButton uiButton1;
+        private Sunny.UI.UIButton btnBuild;
         private Sunny.UI.UITextBox tbNameSapce;
         private Sunny.UI.UILabel uiLabel5;
         private Sunny.UI.UIComboBox cbbConfig;
@@ -539,5 +561,7 @@
         private Sunny.UI.UIButton btnSelectPath;
         private Sunny.UI.UITextBox tbSavePath;
         private Sunny.UI.UILabel uiLabel10;
+        private Sunny.UI.UIContextMenuStrip uiContextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDelete;
     }
 }

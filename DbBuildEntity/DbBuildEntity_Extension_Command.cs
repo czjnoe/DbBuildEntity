@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="DbBuildEntityCommand.cs" company="Company">
+// <copyright file="DbBuildEntity_Extension_Command.cs" company="Company">
 //     Copyright (c) Company.  All rights reserved.
 // </copyright>
 //------------------------------------------------------------------------------
@@ -10,26 +10,23 @@ using System.Globalization;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using DbBuildEntity.UI;
-using EnvDTE;
-using EnvDTE80;
-using System.IO;
 
 namespace DbBuildEntity
 {
     /// <summary>
-    /// Command 项目按钮
+    /// Command 菜单栏按钮
     /// </summary>
-    internal sealed class DbBuildEntityCommand
+    internal sealed class DbBuildEntity_Extension_Command
     {
         /// <summary>
         /// Command ID.
         /// </summary>
-        public const int CommandId = 0x0100;
+        public const int CommandId = 256;
 
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("39416edf-cdbb-43d9-9708-cc2cceb17bcf");
+        public static readonly Guid CommandSet = new Guid("75950015-5b52-4a84-9b70-c4bc85a7befa");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -37,11 +34,11 @@ namespace DbBuildEntity
         private readonly Package package;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DbBuildEntityCommand"/> class.
+        /// Initializes a new instance of the <see cref="DbBuildEntity_Extension_Command"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
-        private DbBuildEntityCommand(Package package)
+        private DbBuildEntity_Extension_Command(Package package)
         {
             if (package == null)
             {
@@ -62,7 +59,7 @@ namespace DbBuildEntity
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static DbBuildEntityCommand Instance
+        public static DbBuildEntity_Extension_Command Instance
         {
             get;
             private set;
@@ -85,7 +82,7 @@ namespace DbBuildEntity
         /// <param name="package">Owner package, not null.</param>
         public static void Initialize(Package package)
         {
-            Instance = new DbBuildEntityCommand(package);
+            Instance = new DbBuildEntity_Extension_Command(package);
         }
 
         /// <summary>
@@ -97,60 +94,7 @@ namespace DbBuildEntity
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-           var tuplePath= GetPath(ServiceProvider);
-            new FrmMain(tuplePath.Item2).ShowDialog();
-            //string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            //string title = "DbBuildEntityCommand";
-
-            //// Show a message box to prove we were here
-            //VsShellUtilities.ShowMessageBox(
-            //    this.ServiceProvider,
-            //    message,
-            //    title,
-            //    OLEMSGICON.OLEMSGICON_INFO,
-            //    OLEMSGBUTTON.OLEMSGBUTTON_OK,
-            //    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            new FrmMain("").ShowDialog();
         }
-
-        private static Tuple<string, string, string> GetPath(IServiceProvider serviceProvider)
-        {
-            var dte = serviceProvider.GetService(typeof(DTE)) as DTE2;
-            var projects = (UIHierarchyItem[])dte?.ToolWindows.SolutionExplorer.SelectedItems;
-            if (projects == null)
-            {
-                //ShowMessage("未选中任何项目!", serviceProvider);
-                return null;
-
-            }
-            var project = projects[0];
-            var item = project.Object as Project;
-            var path = item?.FullName;
-            if (string.IsNullOrWhiteSpace(path))
-            {
-                //ShowMessage("项目路径为空!", serviceProvider);
-                return null;
-
-            }
-            if (!File.Exists(path))
-            {
-                //ShowMessage(path + "文件不存在!", serviceProvider);
-                return null;
-
-            }
-
-            var srcPath = item?.Properties.Item("FullPath").Value?.ToString();
-            if (string.IsNullOrWhiteSpace(srcPath))
-            {
-                //ShowMessage("FullPath路径为空!", serviceProvider);
-                return null;
-
-            }
-            //path:.csproj全路径
-            //srcPath:.csproj所在的目录
-            //item.Name:项目名称
-            return Tuple.Create(path, srcPath, item.Name);
-        }
-
-
     }
 }

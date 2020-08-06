@@ -44,6 +44,9 @@
       <Group guid="guidDbBuildEntityCommandPackageCmdSet1" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_FOLDERNODE" />
       </Group>
+      <Group guid="guidDbBuildEntityCommandPackageCmdSet2" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      </Group>
     </Groups>
 
     <!--Buttons section. -->
@@ -61,14 +64,21 @@
         <Parent guid="guidDbBuildEntityCommandPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>生成实体</ButtonText>
+          <ButtonText>自动生成实体</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidDbBuildEntityCommandPackageCmdSet1" id="cmdidDbBuildEntity_Folder_Command" priority="0x0100" type="Button">
         <Parent guid="guidDbBuildEntityCommandPackageCmdSet1" id="MyMenuGroup" />
         <Icon guid="guidImages1" id="bmpPic1" />
         <Strings>
-          <ButtonText>生成实体</ButtonText>
+          <ButtonText>自动生成实体</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidDbBuildEntityCommandPackageCmdSet2" id="cmdidDbBuildEntity_Extension_Command" priority="0x0100" type="Button">
+        <Parent guid="guidDbBuildEntityCommandPackageCmdSet2" id="MyMenuGroup" />
+        <Icon guid="guidImages2" id="bmpPic1" />
+        <Strings>
+          <ButtonText>自动生成实体</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -82,6 +92,7 @@
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
       <Bitmap guid="guidImages" href="Resources\DbBuildEntityCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages1" href="Resources\DbBuildEntity_Folder_Command.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages2" href="Resources\DbBuildEntity_Extension_Command.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
     </Bitmaps>
   </Commands>
 
@@ -110,6 +121,20 @@
     </GuidSymbol>
   
     <GuidSymbol value="{e5e04f08-2946-484f-9594-1ccb50bee0da}" name="guidImages1">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{75950015-5b52-4a84-9b70-c4bc85a7befa}" name="guidDbBuildEntityCommandPackageCmdSet2">
+      <IDSymbol value="4128" name="MyMenuGroup" />
+      <IDSymbol value="256" name="cmdidDbBuildEntity_Extension_Command" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{3dee3cd7-1a13-4a7f-8f11-38e44540d362}" name="guidImages2">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />

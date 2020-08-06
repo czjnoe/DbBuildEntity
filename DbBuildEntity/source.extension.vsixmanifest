@@ -15,7 +15,9 @@
   <Assets>
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
     <Asset d:Source="File" Path="app.config" Type="config" />
-    <Asset d:Source="File" Path="Template\template1.tpl" Type="tpl" />
+    <Asset d:Source="File" Path="Template\实体模板1.tpl" Type="tpl" />
     <Asset d:Source="File" Type="Microsoft.VisualStudio.Assembly" Path="Dapper.dll" AssemblyName="Dapper, Version=1.50.2.0, Culture=neutral, PublicKeyToken=null" />
+    <Asset d:Source="File" Path="Template\实体模板2.tpl" Type="tpl" />
+    <Asset d:Source="File" Path="Template\实体枚举模板.tpl" Type="tpl" />
   </Assets>
 </PackageManifest>

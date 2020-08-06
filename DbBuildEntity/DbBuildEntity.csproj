@@ -59,6 +59,7 @@
     <Compile Include="Dal\SqlServerDal.cs" />
     <Compile Include="DbBuildEntityCommand.cs" />
     <Compile Include="DbBuildEntityCommandPackage.cs" />
+    <Compile Include="DbBuildEntity_Extension_Command.cs" />
     <Compile Include="DbBuildEntity_Folder_Command.cs" />
     <Compile Include="Entity\ColumnModel.cs" />
     <Compile Include="Entity\TableModel.cs" />
@@ -104,7 +105,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Template\template1.tpl">
+    <Content Include="Resources\DbBuildEntity_Extension_Command.png" />
+    <Content Include="Template\实体模板1.tpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Template\实体模板2.tpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Template\实体枚举模板.tpl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

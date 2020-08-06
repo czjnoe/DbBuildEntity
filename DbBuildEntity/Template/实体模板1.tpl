@@ -2,9 +2,12 @@
 
 namespace @Model.NameSpace
 {
+	@if(@Model.Description!=null&&@Model.Description!="")
+	{
 	/// <summary>
     /// 实体类@(Model.Description)
     /// </summary>
+	}
     public class @Model.ClassName
     {
 @foreach(var item in Model.Columns)

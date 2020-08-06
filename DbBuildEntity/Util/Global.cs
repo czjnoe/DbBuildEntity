@@ -30,7 +30,7 @@ namespace DbBuildEntity.Util
         //}
 
         public static string nameSpaceConfigContent =
-            "<?xml version=\"1.0\" encoding=\"utf-8\" ?><configuration><appSettings><add key=\"DefaultNameSpace\" value=\"Model\"/></appSettings></configuration>";
+            "<?xml version=\"1.0\" encoding=\"utf-8\" ?><configuration><appSettings><add key=\"DefaultNameSpace\" value=\"Model\"/><add key=\"DefaultPath\" value=\"\"/></appSettings></configuration>";
 
         
 
