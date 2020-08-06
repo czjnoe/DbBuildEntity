@@ -8,13 +8,16 @@
 */
 using MySql.Data.MySqlClient;
 using Oracle.ManagedDataAccess.Client;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DbType = SqlSugar.DbType;
 
 namespace DbBuildEntity.Util
 {
@@ -34,6 +37,13 @@ namespace DbBuildEntity.Util
             else if (type == DbBuildEntity.Util.Enums.DbType.SqlServer)
             {
                 dbConnection = new SqlConnection(connStr);
+            }
+            else if (type == DbBuildEntity.Util.Enums.DbType.SQlite)
+            {
+                //var db= SqlSugarHelp.GetSugarClient(DbType.Sqlite,
+                //@"data_source=C:\Sqlite\db\test.db;Pooling=true;FailIfMissing=false;Max Pool Size=10");
+                var dbConnection2 = new SQLiteConnection(@"C:\Sqlite\db\test.db");
+                dbConnection =(IDbConnection)(new SQLiteConnection(connStr)) ;
             }
             return dbConnection;
         }

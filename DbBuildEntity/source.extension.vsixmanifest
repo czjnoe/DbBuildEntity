@@ -15,6 +15,7 @@
   <Assets>
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
     <Asset d:Source="File" Path="app.config" Type="config" />
-    <Asset d:Source="File" Type="config" Path="Config\ConnString.json" />
+    <Asset d:Source="File" Path="Template\template1.tpl" Type="tpl" />
+    <Asset d:Source="File" Type="Microsoft.VisualStudio.Assembly" Path="Dapper.dll" AssemblyName="Dapper, Version=1.50.2.0, Culture=neutral, PublicKeyToken=null" />
   </Assets>
 </PackageManifest>

@@ -11,18 +11,11 @@ namespace DbBuildEntity.Util
     {
         public static bool Save(string content,string path)
         {
-            StreamWriter sw = null;
-            try
+            //文件存在，文本则覆盖
+            using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
             {
-                using (sw = new StreamWriter(path, false, Encoding.UTF8))
-                {
-                    sw.WriteLine(content);
-                }
-            }
-            catch (Exception ex)
-            {
-                sw.Dispose();
-                return false;
+                sw.Write(content);
+                sw.Close();
             }
             return true;
         }

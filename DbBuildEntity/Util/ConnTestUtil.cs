@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
-using DapperExtensions;
+using SQLite;
 
 namespace DbBuildEntity.Util
 {
@@ -26,15 +26,35 @@ namespace DbBuildEntity.Util
         /// <returns></returns>
         public static bool ConnTest(int connType, string connStr)
         {
-
-            var db = DapperFactory.GetConnection((DbBuildEntity.Util.Enums.DbType)connType, connStr);
-            if(db.State==System.Data.ConnectionState.Open)
+            if ((DbBuildEntity.Util.Enums.DbType) connType == DbBuildEntity.Util.Enums.DbType.SQlite)
             {
+                var db = new SQLiteConnection(connStr);
+                
                 return true;
             }
             else
             {
-                return false;
+                var db = DapperFactory.GetConnection((DbBuildEntity.Util.Enums.DbType)connType, connStr);
+                try
+                {
+                    db.Open();
+                    if (db.State == System.Data.ConnectionState.Open)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                finally
+                {
+                    db.Dispose();
+                }
             }
         }
     }

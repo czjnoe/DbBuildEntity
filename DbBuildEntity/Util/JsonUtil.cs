@@ -50,6 +50,17 @@ namespace DbBuildEntity.Util
             Save();
         }
 
+        public void Edit(ConfigModel model)
+        {
+            var index = list.FindIndex(f => f.Guid.Equals(model.Guid));
+            if (index != -1)
+            {
+                list.RemoveAt(index);
+                list.Add(model);
+            }
+            Save();
+        }
+
         public void Delete(ConfigModel model)
         {
             var index=list.FindIndex(f => f.Guid.Equals(model.Guid));

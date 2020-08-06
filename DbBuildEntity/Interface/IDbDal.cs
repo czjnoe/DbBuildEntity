@@ -10,8 +10,8 @@ namespace DbBuildEntity.Interface
 {
     public interface IDbDal
     {
-        List<ColumnModel> GetColumnList(string TableName);
+        List<ColumnModel> GetColumnList(string TableName, string ConnString);
 
-        List<TableModel> GetTables();
+        List<TableModel> GetTables(string ConnString);
     }
 }

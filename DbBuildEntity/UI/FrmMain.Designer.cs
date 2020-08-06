@@ -30,6 +30,9 @@
         {
             this.uiTabControl1 = new Sunny.UI.UITabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnSelectPath = new Sunny.UI.UIButton();
+            this.tbSavePath = new Sunny.UI.UITextBox();
+            this.uiLabel10 = new Sunny.UI.UILabel();
             this.cbbTemplate = new Sunny.UI.UIComboBox();
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.uiButton1 = new Sunny.UI.UIButton();
@@ -85,6 +88,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnSelectPath);
+            this.tabPage1.Controls.Add(this.tbSavePath);
+            this.tabPage1.Controls.Add(this.uiLabel10);
             this.tabPage1.Controls.Add(this.cbbTemplate);
             this.tabPage1.Controls.Add(this.uiLabel9);
             this.tabPage1.Controls.Add(this.uiButton1);
@@ -99,8 +105,46 @@
             this.tabPage1.Text = "首页";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnSelectPath
+            // 
+            this.btnSelectPath.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSelectPath.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btnSelectPath.Location = new System.Drawing.Point(553, 269);
+            this.btnSelectPath.Name = "btnSelectPath";
+            this.btnSelectPath.Size = new System.Drawing.Size(59, 35);
+            this.btnSelectPath.TabIndex = 9;
+            this.btnSelectPath.Text = "...";
+            this.btnSelectPath.Click += new System.EventHandler(this.btnSelectPath_Click);
+            // 
+            // tbSavePath
+            // 
+            this.tbSavePath.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbSavePath.FillColor = System.Drawing.Color.White;
+            this.tbSavePath.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.tbSavePath.Location = new System.Drawing.Point(173, 269);
+            this.tbSavePath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbSavePath.Maximum = 2147483647D;
+            this.tbSavePath.Minimum = -2147483648D;
+            this.tbSavePath.Name = "tbSavePath";
+            this.tbSavePath.Padding = new System.Windows.Forms.Padding(5);
+            this.tbSavePath.Size = new System.Drawing.Size(360, 34);
+            this.tbSavePath.TabIndex = 8;
+            // 
+            // uiLabel10
+            // 
+            this.uiLabel10.AutoSize = true;
+            this.uiLabel10.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel10.Location = new System.Drawing.Point(54, 276);
+            this.uiLabel10.Name = "uiLabel10";
+            this.uiLabel10.Size = new System.Drawing.Size(57, 27);
+            this.uiLabel10.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel10.TabIndex = 7;
+            this.uiLabel10.Text = "路径:";
+            this.uiLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // cbbTemplate
             // 
+            this.cbbTemplate.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
             this.cbbTemplate.FillColor = System.Drawing.Color.White;
             this.cbbTemplate.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.cbbTemplate.Location = new System.Drawing.Point(173, 198);
@@ -128,7 +172,7 @@
             // 
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(173, 275);
+            this.uiButton1.Location = new System.Drawing.Point(173, 335);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.Size = new System.Drawing.Size(100, 35);
             this.uiButton1.TabIndex = 4;
@@ -409,6 +453,7 @@
             this.uiLinkLabel1.TabStop = true;
             this.uiLinkLabel1.Text = "https://github.com/czjnoe/DbBuildEntity";
             this.uiLinkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.uiLinkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.uiLinkLabel1_LinkClicked);
             // 
             // uiLabel7
             // 
@@ -491,5 +536,8 @@
         private Sunny.UI.UILabel uiLabel6;
         private Sunny.UI.UIComboBox cbbTemplate;
         private Sunny.UI.UILabel uiLabel9;
+        private Sunny.UI.UIButton btnSelectPath;
+        private Sunny.UI.UITextBox tbSavePath;
+        private Sunny.UI.UILabel uiLabel10;
     }
 }

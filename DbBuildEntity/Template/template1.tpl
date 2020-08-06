@@ -2,18 +2,22 @@
 
 namespace @Model.NameSpace
 {
-    /// <summary>
-    /// 实体类@(Model.Description)。(属性说明自动提取数据库字段的描述信息)
+	/// <summary>
+    /// 实体类@(Model.Description)
     /// </summary>
-    [Serializable]
-    public partial class @Model.ClassName
+    public class @Model.ClassName
     {
 @foreach(var item in Model.Columns)
 {
+		@:
+	if (@item.Description!=null&&@item.Description!="")
+	{
 		@:/// <summary>
 		@:/// @(item.Description)
 		@:/// </summary>
+	}
 		@:public @item.TypeName @item.ColumnName { get; set; }
+
 }
 	}
 }

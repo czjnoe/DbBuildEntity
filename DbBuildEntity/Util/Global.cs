@@ -29,6 +29,11 @@ namespace DbBuildEntity.Util
         //    }
         //}
 
+        public static string nameSpaceConfigContent =
+            "<?xml version=\"1.0\" encoding=\"utf-8\" ?><configuration><appSettings><add key=\"DefaultNameSpace\" value=\"Model\"/></appSettings></configuration>";
+
+        
+
         public static string assemblyBasePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         public static string configStringFullPath = assemblyBasePath + "\\Config\\ConnString.json";
@@ -37,5 +42,7 @@ namespace DbBuildEntity.Util
 
         public static string templatePath = assemblyBasePath + "\\Template";
         public static string dbTypeFullPath = assemblyBasePath + "\\Config\\dbtype.json";
+
+        public static string nameSpaceConfigFullPath = assemblyBasePath + "\\Config\\NameSpace.config";
     }
 }

@@ -1,9 +1,9 @@
 ﻿/*
 *┌──────────────────────────────────────────┐
-*│  描述：Enums                                   
+*│  描述：TemplateModel                                   
 *│　作   者：chenzhaojie                                              
 *│　版   本：1.0                                              
-*│　创建时间：2020/8/2 16:14:48                        
+*│　创建时间：2020/8/3 21:27:06                        
 *└──────────────────────────────────────────┘
 */
 using System;
@@ -12,19 +12,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DbBuildEntity.Util
+namespace DbBuildEntity.Model
 {
-    public static class Enums
+   public class TemplateModel
     {
-        /// <summary>
-        /// 数据类型
-        /// </summary>
-        public enum DbType
-        {
-            SqlServer = 1,
-            MySQL = 2,
-            Oracle = 3,
-            SQlite = 4
-        }
+        public string Name { get; set; }
+        public string FullName { get; set; }
     }
 }

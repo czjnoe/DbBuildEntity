@@ -1,5 +1,7 @@
 ﻿using DbBuildEntity.Entity;
 using RazorEngine;
+using RazorEngine.Configuration;
+using RazorEngine.Templating;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +13,7 @@ namespace DbBuildEntity.Util
 {
     public class RazorBuildUtil
     {
+        [Obsolete]
         public static string GetBuildContent(string templatePath, List<ColumnModel> Columns, TableModel tableModel)
         {
             var tplContent = File.ReadAllText(templatePath);
@@ -19,9 +22,33 @@ namespace DbBuildEntity.Util
                 ClassName = tableModel.TableName,
                 Description = tableModel.Description,
                 Columns = Columns,
-                NameSpace = ConfigUtil.GetAppSettingValue("DefaultNameSpace", "Model", Global.appConfigFullPath),
-            });
+                NameSpace = "Models",
+                i1 = 1,
+                i2 = 1,
+                i3 = 1
+            }, "sss");
             return result;
         }
+
+        public static string GetBuildContentNew(string templatePath, string templateName, List<ColumnModel> Columns, TableModel tableModel,string nameSpace)
+        {
+            var config = new TemplateServiceConfiguration();
+            config.CompilerServiceFactory = new RazorEngine.Roslyn.RoslynCompilerServiceFactory();
+            string result = string.Empty;
+            var tplContent = File.ReadAllText(templatePath);
+            using (var service = RazorEngineService.Create(config))
+            {
+                var model = new
+                {
+                    ClassName = tableModel.TableName,
+                    Description = tableModel.Description,
+                    Columns = Columns,
+                    NameSpace = nameSpace,
+                };
+                result = service.RunCompile(tplContent, templateName, null, model);
+            }
+            return result;
+        }
+
     }
 }
