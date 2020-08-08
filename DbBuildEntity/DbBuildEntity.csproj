@@ -63,6 +63,7 @@
     <Compile Include="DbBuildEntity_Folder_Command.cs" />
     <Compile Include="Entity\ColumnModel.cs" />
     <Compile Include="Entity\TableModel.cs" />
+    <Compile Include="Help\AdminstratorHelp.cs" />
     <Compile Include="Help\StringExtension.cs" />
     <Compile Include="Help\ValueExtension.cs" />
     <Compile Include="Interface\IDbDal.cs" />

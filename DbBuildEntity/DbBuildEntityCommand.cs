@@ -13,6 +13,7 @@ using DbBuildEntity.UI;
 using EnvDTE;
 using EnvDTE80;
 using System.IO;
+using DbBuildEntity.Help;
 
 namespace DbBuildEntity
 {
@@ -98,18 +99,8 @@ namespace DbBuildEntity
         private void MenuItemCallback(object sender, EventArgs e)
         {
            var tuplePath= GetPath(ServiceProvider);
-            new FrmMain(tuplePath.Item2).ShowDialog();
-            //string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            //string title = "DbBuildEntityCommand";
-
-            //// Show a message box to prove we were here
-            //VsShellUtilities.ShowMessageBox(
-            //    this.ServiceProvider,
-            //    message,
-            //    title,
-            //    OLEMSGICON.OLEMSGICON_INFO,
-            //    OLEMSGBUTTON.OLEMSGBUTTON_OK,
-            //    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            //new FrmMain(tuplePath.Item2).ShowDialog();
+            AdminstratorHelp.AdminstratorRun(new FrmMain(tuplePath.Item2));
         }
 
         private static Tuple<string, string, string> GetPath(IServiceProvider serviceProvider)

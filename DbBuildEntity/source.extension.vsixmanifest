@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="DbBuildEntity.Company.95dc0740-1d25-451a-b241-7ca516726903" Version="1.1" Language="zh-CN" Publisher="Company" />
+    <Identity Id="DbBuildEntity.Company.95dc0740-1d25-451a-b241-7ca516726903" Version="1.2" Language="zh-CN" Publisher="陈子杰" />
     <DisplayName>DbBuildEntity</DisplayName>
-    <Description>Empty VSIX Project.</Description>
+    <Description xml:space="preserve">Support SqlServer, Oracle, Sqlite database automatic entity generation</Description>
+    <MoreInfo>https://github.com/czjnoe/DbBuildEntity</MoreInfo>
+    <Tags>Entity Db</Tags>
   </Metadata>
   <Installation AllUsers="true">
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />

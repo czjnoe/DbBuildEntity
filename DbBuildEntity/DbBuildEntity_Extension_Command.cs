@@ -10,6 +10,8 @@ using System.Globalization;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using DbBuildEntity.UI;
+using System.Windows.Forms;
+using DbBuildEntity.Help;
 
 namespace DbBuildEntity
 {
@@ -94,7 +96,8 @@ namespace DbBuildEntity
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            new FrmMain("").ShowDialog();
+            //new FrmMain("").ShowDialog();
+            AdminstratorHelp.AdminstratorRun(new FrmMain(""));
         }
     }
 }

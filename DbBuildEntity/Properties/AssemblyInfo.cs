@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("DbBuildEntity")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("陈子杰")]
 [assembly: AssemblyProduct("DbBuildEntity")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
