@@ -39,16 +39,7 @@ namespace DbBuildEntity.UI
         public FrmMain(string savePath)
         {
             InitializeComponent();
-            if (savePath.IsNullOrEmpty())
-            {
-                _savePath = ConfigUtil.GetAppSettingValue("DefaultPath", "", Global.nameSpaceConfigFullPath);
-            }
-            else
-            {
-                _savePath = savePath;
-            }
-
-
+           
             var dTypeList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DbTypeModel>>(File.ReadAllText(Global.dbTypeFullPath));
             dbTypeDic = dTypeList.ToDictionary(key => key.dbtype.ToUpper(), value => value.cstype);
 
@@ -62,6 +53,14 @@ namespace DbBuildEntity.UI
             }
 
             jsonUtil = new JsonUtil();
+            if (savePath.IsNullOrEmpty())
+            {
+                _savePath = ConfigUtil.GetAppSettingValue("DefaultPath", "", Global.nameSpaceConfigFullPath);
+            }
+            else
+            {
+                _savePath = savePath;
+            }
         }
 
         /// <summary>
@@ -327,12 +326,16 @@ namespace DbBuildEntity.UI
 
                 foreach (var table in tables)
                 {
-                    StatusDescription = "导出实体中(" + index + "%)......";
+                    //StatusDescription = "导出实体中(" + index + "%)......";
                     StatusStepIt();
 
                     var columnsList = dal.GetColumnList(table.TableName, configModel.ConnString);
                     foreach (var column in columnsList)
                     {
+                        if(column.TypeName.Contains("varchar")|| column.TypeName.Contains("VARCHAR"))
+                        {
+                            column.TypeName = "string";
+                        }
                         string value = string.Empty;
                         var dResult = dbTypeDic.TryGetValue(column.TypeName.ToUpper(), out value);
                         if (dResult)
@@ -360,7 +363,7 @@ namespace DbBuildEntity.UI
                 TableModels model = null;
                 foreach (var table in tables)
                 {
-                    StatusDescription = "加载数据中(" + index + "%)......";
+                    //StatusDescription = "加载数据中(" + index + "%)......";
                     StatusStepIt();
                     var columnsList = dal.GetColumnList(table.TableName, configModel.ConnString);
                     model = new TableModels();

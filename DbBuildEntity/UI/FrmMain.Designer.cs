@@ -52,6 +52,8 @@
             this.tbConnName = new Sunny.UI.UITextBox();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.lbConnName = new Sunny.UI.UIListBox();
+            this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
+            this.ToolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
@@ -59,17 +61,15 @@
             this.uiLinkLabel1 = new Sunny.UI.UILinkLabel();
             this.uiLabel7 = new Sunny.UI.UILabel();
             this.uiLabel6 = new Sunny.UI.UILabel();
-            this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
-            this.ToolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.uiTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.uiPanel2.SuspendLayout();
             this.uiPanel1.SuspendLayout();
+            this.uiContextMenuStrip1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.uiPanel3.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
-            this.uiContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiTabControl1
@@ -137,7 +137,7 @@
             // 
             this.uiLabel10.AutoSize = true;
             this.uiLabel10.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel10.Location = new System.Drawing.Point(54, 276);
+            this.uiLabel10.Location = new System.Drawing.Point(44, 276);
             this.uiLabel10.Name = "uiLabel10";
             this.uiLabel10.Size = new System.Drawing.Size(57, 27);
             this.uiLabel10.Style = Sunny.UI.UIStyle.Custom;
@@ -393,6 +393,22 @@
             this.lbConnName.Text = "uiListBox1";
             this.lbConnName.ItemDoubleClick += new System.EventHandler(this.lbConnName_ItemDoubleClick);
             // 
+            // uiContextMenuStrip1
+            // 
+            this.uiContextMenuStrip1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.uiContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemDelete});
+            this.uiContextMenuStrip1.Name = "uiContextMenuStrip1";
+            this.uiContextMenuStrip1.Size = new System.Drawing.Size(125, 36);
+            // 
+            // ToolStripMenuItemDelete
+            // 
+            this.ToolStripMenuItemDelete.Name = "ToolStripMenuItemDelete";
+            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(124, 32);
+            this.ToolStripMenuItemDelete.Text = "删除";
+            this.ToolStripMenuItemDelete.Click += new System.EventHandler(this.ToolStripMenuItemDelete_Click);
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.uiPanel3);
@@ -484,22 +500,6 @@
             this.uiLabel6.Text = "姓名:";
             this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiContextMenuStrip1
-            // 
-            this.uiContextMenuStrip1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.uiContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemDelete});
-            this.uiContextMenuStrip1.Name = "uiContextMenuStrip1";
-            this.uiContextMenuStrip1.Size = new System.Drawing.Size(125, 36);
-            // 
-            // ToolStripMenuItemDelete
-            // 
-            this.ToolStripMenuItemDelete.Name = "ToolStripMenuItemDelete";
-            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(175, 32);
-            this.ToolStripMenuItemDelete.Text = "删除";
-            this.ToolStripMenuItemDelete.Click += new System.EventHandler(this.ToolStripMenuItemDelete_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
@@ -519,11 +519,11 @@
             this.uiPanel2.ResumeLayout(false);
             this.uiPanel2.PerformLayout();
             this.uiPanel1.ResumeLayout(false);
+            this.uiContextMenuStrip1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.uiPanel3.ResumeLayout(false);
             this.uiGroupBox1.ResumeLayout(false);
             this.uiGroupBox1.PerformLayout();
-            this.uiContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
